@@ -1,0 +1,99 @@
+#include<iostream>
+using namespace std;
+
+int arr[100],n=100,rear=-1,front=0;
+
+void push(int x)
+{
+    if(rear>=n)
+    {
+        cout<<"Queue is full"<<endl;
+    }
+    else 
+    {
+        rear++;
+        arr[rear]=x;
+    }
+    
+}
+
+void pop()
+{
+    if(rear<front){
+        cout<<"Queue empty"<<endl;
+    }
+    else
+    {
+        cout<<"Popped "<<arr[front]<<endl;
+        front++;
+    }
+    
+}
+
+int front1(){
+    if(rear<front)
+    {
+        cout<<"Stack empty"<<endl;
+        return 0;
+    }
+    else
+    {
+        return arr[front];
+    }
+}
+
+bool empty(){
+    if(rear<front)
+    {
+        return true;
+    }
+    return false;
+}
+
+int size(){
+    return rear-front+1;
+}
+
+void display()
+{
+    for(int i=front;i<=rear;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+int back(){
+    if(rear<front)
+    {
+        cout<<"Stack empty"<<endl;
+        return 0;
+    }
+    else
+    {
+        return arr[rear];
+    }
+}
+
+
+int main()
+{
+    push(10);
+    push(30);
+    push(50);
+    push(20);
+    push(35);
+    cout<<"Empty : "<<empty()<<endl;
+    display();
+    pop();
+    display();
+    cout<<"Front is : "<<front1()<<endl;
+    cout<<"Back is : "<<back()<<endl;
+    cout<<size()<<endl;
+    pop();
+    pop();
+    pop();
+    pop();
+    cout<<"Empty : "<<empty()<<endl;
+    pop();
+}
